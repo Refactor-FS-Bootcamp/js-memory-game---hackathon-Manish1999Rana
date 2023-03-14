@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./index.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="content">
-        <input type="button" name="Start" id="start" value="Start" onclick="display()"><br>
+        <input type="button" name="Start" id="start" value="Start" onclick="strtGame()"><br>
         <label id="time" for="time">Time:</label><br><label id="moves" for="moves">Moves:</label>
         <br>
         <div id="game">
             <!-- game content goes here. -->
             <table id="box">
             </table>
-            <img src="images/fruit1.jpg" alt="" srcset="" style="visibility: hidden;">
+            <img src="images/fruit1.jpg" alt="" id="yes" style="visibility: hidden;" srcset=""onclick="view(yes)">
         </div>
     </div>
+    <script src="./index.js"></script>
 </body>
 </html>

@@ -1,10 +1,15 @@
+let count=0;
+let a = 0;
+strtGame();
+setInterval(() => {
+    document.getElementById("time").innerHTML = "time: " + a + "sec";
+    document.getElementById("moves").innerHTML = "Moves: " + count;
+    a = a + 1;
+}, 1000);
 function strtGame() {
-    let date = new Date();
-    let a = 0;
-    setInterval(() => {
-        document.getElementById("time").innerHTML = "time: " + a + "sec";
-        a=a+1;
-    }, 1000);
+    a = 0;
+    // let date = new Date();
+    count = 0;
     display();
 }
 function rand() {
@@ -16,9 +21,15 @@ function display() {
     for (let i = 0; i < 4; i++){
         res=res+`<tr>`
         for (let j = 0; j < 4; j++){
-            res = res + `<td><img src="images/fruit${rand()}.jpg" style="visibility: hidden;"></td>`;
+            let s = rand();
+            res = res + `<td onclick="view(${"" + s + i + j})"><img src="images/fruit${s}.jpg" style="visibility: hidden;" id=${"" + s + i + j} ></td>`;
         }
         res = res + `</tr>`;
     }
     document.getElementById("box").innerHTML=res;
+}
+function view(y) {
+    count++;
+    console.log(y)
+    document.getElementById(y).removeAttribute("style")
 }
