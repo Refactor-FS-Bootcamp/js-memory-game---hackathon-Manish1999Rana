@@ -1,5 +1,6 @@
 let count=0;
 let a = 0;
+let pid;
 strtGame();
 setInterval(() => {
     document.getElementById("time").innerHTML = "time: " + a + "sec";
@@ -30,6 +31,18 @@ function display() {
 }
 function view(y) {
     count++;
-    console.log(y)
-    document.getElementById(y).removeAttribute("style")
+    // console.log(y);
+    document.getElementById(y).removeAttribute("style");
+    if (count % 2 == 1)
+        pid = y;
+    else
+        check(y);
+}
+function check(now) {
+    if (parseInt(now / 100) != parseInt(pid / 100)) {
+        setTimeout(() => {
+            document.getElementById(now).setAttribute("style", "visibility:hidden");
+            document.getElementById(pid).setAttribute("style", "visibility:hidden");
+        }, 1000);
+    }
 }
